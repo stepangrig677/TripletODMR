@@ -155,7 +155,7 @@ for trp.phi in Phi:
 		for trp.B in Magnetic:
 		   val1 = trp.eval(trp.self, trp.D, trp.E, trp.B, trp.theta,trp.phi,mol_basis=True)
 		   val2 = [(val1[3]-val1[1]),(val1[2]-val1[1])] 
-		   dc_by_theta[B]=val2
+		   dc_by_theta[trp.B]=val2
 		dc_by_phi[trp.theta]=dc_by_theta
 	v[trp.phi]=dc_by_phi
 f = open('check.txt', 'w')
