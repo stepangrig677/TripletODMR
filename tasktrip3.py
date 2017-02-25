@@ -136,15 +136,29 @@ pl.pcolor(freq, field, Intensity)
 pl.xlabel(" Frequency")
 pl.ylabel(" B (G)")
 pl.show()
-hpi=math.pi/2# Например
-# Множества, по которым осуществляется перебобр лучше сразу именовать
-Phi = range(0,hpi,45)
-Theta = range(0,hpi,45)
-Magnetic = range(0,400,41)
 
+#вспомогательные чиселки
+a = 91*math.pi/180
+b = a/45
+c = 402/30
+d = 401+c
+#сами углы и поле
+Phi = np.arange(0,a,b)
+Theta = np.arange(0,a,b)
+Magnetic = np.arange(0,d,c)
+#из углов и поля создаём индексы для датафрейма
+iterables = [Phi, Theta, Magnetic]
+index = pd.MultiIndex.from_product(iterables, names=['Phi1', 'Theta1', 'Field'])
+razmerdf = len(Phi)*len(Theta)*len(Magnetic)
 trp = TripletHamiltonian()
 trp.D = 487.9
 trp.E = 72.9
+
+"""
+ниже надо ещё разобраться со всем этим безобразием
+т.е. привязать циклы к индексам
+записать значения в датафрейм
+"""
 v = {} # v- трехмерный словарь со значениями, по сути словарь словарей словарей
 for trp.phi in Phi:
 	dc_by_phi={} #    словарь словарей по theta
