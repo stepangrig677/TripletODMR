@@ -150,6 +150,8 @@ Magnetic = np.arange(0,d,c)
 iterables = [Phi, Theta, Magnetic]
 index = pd.MultiIndex.from_product(iterables, names=['Phi1', 'Theta1', 'Field'])
 razmerdf = len(Phi)*len(Theta)*len(Magnetic)
+df = pd.DataFrame(np.zeros(razmerdf, 2), index=index)
+
 trp = TripletHamiltonian()
 trp.D = 487.9
 trp.E = 72.9
@@ -159,7 +161,8 @@ trp.E = 72.9
 т.е. привязать циклы к индексам
 записать значения в датафрейм
 """
-v = {} # v- трехмерный словарь со значениями, по сути словарь словарей словарей
+#v = {} # v- трехмерный словарь со значениями, по сути словарь словарей словарей
+
 for trp.phi in Phi:
 	dc_by_phi={} #    словарь словарей по theta
 	for trp.theta in Theta:
