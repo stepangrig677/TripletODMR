@@ -8,7 +8,6 @@ import pandas as pd
 import pylab as pl
 import array
 
-
 class Rotation:
     """
     * Rotation : provides a representation for 3D space rotations
@@ -122,7 +121,6 @@ class TripletHamiltonian:
             return np.linalg.eigvalsh(self.spin_hamiltonian_mol_basis(D, E, B, theta, phi))
         else:
             return np.linalg.eigvalsh(self.spin_hamiltonian_field_basis(D, E, B, theta, phi))
-
 
 ################################################
 data = np.loadtxt("testupto30up.txt", comments='%')#, usecols=(0,1,3),unpack=True)
