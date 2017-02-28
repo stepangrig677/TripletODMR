@@ -13,11 +13,14 @@ Magnetic = np.arange(0,d,c)
 iterables = [Phi, Theta]#, Magnetic]
 e = len(Phi)*len(Theta)
 f = len(Magnetic)
-index = pd.MultiIndex.from_product(iterables, names=['Phi1', 'Theta1']#, 'Field'])
+index = pd.MultiIndex.from_product(iterables, names=['Phi1', 'Theta1'])#, 'Field'])
 daf = pd.DataFrame(np.random.randn( f, e), index = Magnetic, columns = index)
 #s = pd.Series(np.random.randn(62775), index=index)
+n=0
+for x in Theta:
+    daf[n++]=pd.Series([1., 2., 3.], index=['a', 'b', 'c'])
 
-print(s)
+#print(s)
 #print(len(Phi),len(Theta),len(Magnetic))
 """
 Предыдущий вариант, который работал:
